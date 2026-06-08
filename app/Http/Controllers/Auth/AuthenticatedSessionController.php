@@ -35,11 +35,13 @@ class AuthenticatedSessionController extends Controller
 
     public function destroy(Request $request): RedirectResponse
     {
-        Auth::guard('web')->logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        if (Auth::guard('web')->check()) {
+            Auth::guard('web')->logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+        }
 
-        return redirect()->route('login')->setStatusCode(303);
+        return redirect('/')->setStatusCode(303);
     }
 
     public function redirectAfterLogout(Request $request): RedirectResponse
@@ -50,6 +52,6 @@ class AuthenticatedSessionController extends Controller
             $request->session()->regenerateToken();
         }
 
-        return redirect()->route('login');
+        return redirect('/');
     }
 }

@@ -50,16 +50,24 @@ class AuthenticationTest extends TestCase
 
         $this->assertGuest();
         $response->assertStatus(303);
-        $response->assertRedirect(route('login', absolute: false));
+        $response->assertRedirect('/');
     }
 
-    public function test_logout_url_redirects_to_login(): void
+    public function test_logout_url_redirects_to_landing_page(): void
     {
         $user = User::factory()->create();
 
         $response = $this->actingAs($user)->get('/logout');
 
         $this->assertGuest();
-        $response->assertRedirect(route('login', absolute: false));
+        $response->assertRedirect('/');
+    }
+
+    public function test_guest_logout_url_redirects_to_landing_page(): void
+    {
+        $response = $this->get('/logout');
+
+        $this->assertGuest();
+        $response->assertRedirect('/');
     }
 }
