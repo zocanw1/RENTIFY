@@ -1,0 +1,64 @@
+/* 1. Perkecil Logo */
+svg, img {
+    max-width: 100px; /* Atau sesuaikan dengan ukuran di Figma kamu */
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+/* 2. Berikan struktur dasar supaya tidak numpuk di pojok kiri */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f7fe; /* Warna latar belakang dari Figma */
+    margin: 0;
+    font-family: sans-serif;
+}
+
+/* 3. Kotak Putih Form (Card) */
+form {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* 4. Rapikan Input agar tidak dempet */
+div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box; /* Biar padding tidak ngerusak lebar */
+}
+
+/* 5. Tombol Register */
+button {
+    background-color: #2D31FA; /* Warna biru sesuai desainmu */
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #1a1dbd;
+}

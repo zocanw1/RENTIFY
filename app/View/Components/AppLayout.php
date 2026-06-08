@@ -1,0 +1,17 @@
+<?php
+
+namespace App\View\Components;
+
+use Illuminate\View\Component;
+use Illuminate\View\View;
+
+class AppLayout extends Component
+{
+    // Terima prop 'title' dari view
+    public function __construct(public string $title = 'Dashboard') {}
+
+    public function render(): View
+    {
+        return view('layouts.app');
+    }
+}
