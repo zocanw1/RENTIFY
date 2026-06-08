@@ -1,5 +1,6 @@
 /.phpunit.result.cache
 /.env
+/.vercel
 /node_modules
 /bootstrap/cache/*.php
 /public/build

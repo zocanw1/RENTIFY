@@ -13,6 +13,15 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 // Register the Composer autoloader...
 require __DIR__.'/../vendor/autoload.php';
 
+if (getenv('VERCEL') || getenv('NOW_REGION') || isset($_ENV['VERCEL']) || isset($_ENV['NOW_REGION'])) {
+    putenv('SESSION_DRIVER=cookie');
+    putenv('CACHE_STORE=file');
+    $_ENV['SESSION_DRIVER'] = 'cookie';
+    $_ENV['CACHE_STORE'] = 'file';
+    $_SERVER['SESSION_DRIVER'] = 'cookie';
+    $_SERVER['CACHE_STORE'] = 'file';
+}
+
 // Bootstrap Laravel and handle the request...
 /** @var Application $app */
 $app = require_once __DIR__.'/../bootstrap/app.php';
